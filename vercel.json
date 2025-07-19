@@ -3,7 +3,7 @@
   "env": {
         "TYPE":"postgres",
         "RDS_HOST":"aws-0-ap-south-1.pooler.supabase.com",
-        "RDS_PORT":5432,
+        "RDS_PORT":"5432",
         "RDS_USERNAME":"postgres.mgfdlzkfrcqezjbwfrmx",
         "RDS_PASSWORD":"zYTWI0TWklshSumm",
         "RDS_DATABASE":"postgres"
@@ -12,10 +12,6 @@
     {
       "src": "dist/main.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "public/**/*",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
