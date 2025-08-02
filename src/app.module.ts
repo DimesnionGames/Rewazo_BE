@@ -6,6 +6,7 @@ import { AuthService } from './auth/service/auth.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { rdsConfig } from './common/utils/config/rds.config';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -21,11 +22,13 @@ import { rdsConfig } from './common/utils/config/rds.config';
       password: rdsConfig.password,
       database: rdsConfig.database,
       autoLoadEntities: true,
-      extra: {
-        synchronizeViews: true,
-      }
+      // You don't need 'extra' for this synchronize option.
+      // 'synchronize' is a simpler key for development.
+      // WARNING: Never use synchronize: true in production.
+      synchronize: true, 
     }),
-    AuthModule],
+    AuthModule,
+    UsersModule],
   controllers: [AppController],
   providers: [AppService, AuthService],
 })
