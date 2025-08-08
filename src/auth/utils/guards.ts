@@ -11,3 +11,9 @@ export class GoogleAuthGuard extends AuthGuard('google'){
         return activate;
     }
 }
+
+@Injectable()
+export class GoogleIdTokenGuard extends AuthGuard('google-id-token') {}
+
+@Injectable()
+export class JwtAuthGuard extends AuthGuard('jwt') {}
